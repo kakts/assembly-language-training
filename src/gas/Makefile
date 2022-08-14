@@ -15,6 +15,23 @@ dasm-add: # add.oを逆アセンブルする
 show-symbol: # オブジェクトファイルadd.oに含まれているシンボルを確認する
 	objdump -t add.o
 
-.PHONY: link
+.PHONY: link-add
 link: # リンクすることにより実行ファイルを作成する
 	ld -o add add.o
+
+.PHONY: asm-cmp
+asm-cmp: # アセンブリプログラムcmp.sをオブジェクトファイルcmp.oにアセンブルする
+	as -o cmp.o cmp.s
+
+.PHONY: link-cmp
+link-cmp: # リンクすることにより実行ファイルを作成する
+	ld -o cmp cmp.o
+
+.PHONY: asm-cpuid
+asm-cpuid: # アセンブリプログラムcpuid.sをオブジェクトファイルcpuid.oにアセンブルする
+	as -o cpuid.o cpuid.s
+
+.PHONY: link-cpuid
+link-cpuid: # リンクすることにより実行ファイルを作成する
+	ld -o cpuid cpuid.o
+
