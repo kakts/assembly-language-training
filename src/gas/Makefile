@@ -35,3 +35,15 @@ asm-cpuid: # アセンブリプログラムcpuid.sをオブジェクトファイ
 link-cpuid: # リンクすることにより実行ファイルを作成する
 	ld -o cpuid cpuid.o
 
+
+.PHONY: comp-asm-fib
+comp-fib: # fib.cをコンパイルしアセンブリ言語に変換
+	gcc -S -fno-pic fib.c
+
+.PHONY: comp-fib
+comp-fib: # fib.cをコンパイルしオブジェクトファイルに変換
+	gcc -fno-pic -c fib.c
+
+.PHONY: link-cpuid
+link-cpuid: # リンクすることにより実行ファイルを作成する
+	ld -o cpuid cpuid.o
