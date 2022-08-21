@@ -3,7 +3,7 @@ cmp-inline:
 	gcc -no-pie -fno-pic -fomit-frame-pointer inline.c -o inline
 
 .PHONY: comp-sum
-comp-sum: # sum.cとsum_asm.sの2つをオブジェクトファイルに変換、リンクして実行ファイルを生成する
+comp-sum: # sum.cとsum_asm.sの2つをオブジェクトファイルに変換、リンクして実行ファイルを生成
 	gcc -fno-pic -c -o sum.o sum.c
 	as -o sum_asm.o sum_asm.s
-	gcc -o sum sum.o sum_asm.o
+	gcc -no-pie -o sum sum.o sum_asm.o
