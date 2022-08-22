@@ -13,3 +13,11 @@ comp-rdtsc: # rdtsc.cとrdtsc_asm.sの2つをオブジェクトファイルに�
 	gcc -fno-pic -c -o rdtsc.o rdtsc.c
 	as -o rdtsc_asm.o rdtsc_asm.s
 	gcc -no-pie -o rdtsc rdtsc.o rdtsc_asm.o
+
+.PHONY: comp-write
+comp-write:
+	gcc -g -no-pie -fno-pic -fomit-frame-pointer -o write write.c
+
+.PHONY: asm-write
+asm-write: # write.cをアセンブリ言語にコンパイルする write.sに出力
+	gcc -S -fno-pic write.c
