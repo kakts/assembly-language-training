@@ -3,7 +3,7 @@
 	.globl	str
 	.section	.rodata
 .LC0:
-	.string	"Hello\n"
+	.string	"Hello, World!\n"
 	.data
 	.align 8
 	.type	str, @object
@@ -27,7 +27,7 @@ main:
 	movl str, %ecx
 # 0 "" 2
 # 10 "write.c" 1
-	movl $7, %edx
+	movl $14, %edx
 # 0 "" 2
 # 11 "write.c" 1
 	movl $4, %eax
